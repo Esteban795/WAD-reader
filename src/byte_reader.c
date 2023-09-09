@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "../headers/byte_reader.h"
+#include "../headers/vect2.h"
+
 
 byte read_1_byte(FILE* f, int offset){
     byte* b = read_bytes(f,1,offset);
@@ -26,3 +28,9 @@ char* read_string(FILE* f, int offset,int num_bytes){
     return str;
 }
 
+vect2 read_vertex(FILE* f,int offset){
+    int x = read_bytes(f,2,offset);
+    int y = read_bytes(f,2,offset);
+    vect2 pos = {.x = x, .y = y};
+    return pos;
+}
