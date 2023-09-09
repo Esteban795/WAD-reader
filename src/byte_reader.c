@@ -12,7 +12,7 @@ byte read_1_byte(FILE* f, int offset){
     return temp;
 }
 
-byte* read_bytes(FILE* f,int num_bytes,int offset){
+byte* read_bytes(FILE* f,int offset,int num_bytes){
     byte* bytes = malloc(sizeof(byte) * num_bytes);
     fseek(f,offset,0);
     fread(bytes,sizeof(byte),num_bytes,f);
@@ -29,8 +29,8 @@ char* read_string(FILE* f, int offset,int num_bytes){
 }
 
 vect2 read_vertex(FILE* f,int offset){
-    int x = read_bytes(f,2,offset);
-    int y = read_bytes(f,2,offset);
+    int x = (int) read_bytes(f,offset,2);
+    int y = (int) read_bytes(f,offset,2);
     vect2 pos = {.x = x, .y = y};
     return pos;
 }
