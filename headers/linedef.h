@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "byte_reader.h"
 
 struct Linedef {
     int start_vertex_id;

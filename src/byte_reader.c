@@ -28,9 +28,4 @@ char* read_string(FILE* f, int offset,int num_bytes){
     return str;
 }
 
-vect2 read_vertex(FILE* f,int offset){
-    int x = (int) read_bytes(f,offset,2);
-    int y = (int) read_bytes(f,offset,2);
-    vect2 pos = {.x = x, .y = y};
-    return pos;
-}
+

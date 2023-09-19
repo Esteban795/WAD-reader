@@ -12,6 +12,16 @@ lump* read_directory(FILE* f,header* h){
             
         };
         directory[i] = l;
-    }
+    }   
     return directory;
 }
+
+int get_lump_index(lump* directory,char* lump_name,int lump_count){
+    for (int i = 0; i < lump_count;i++){
+        if (strcmp(directory[i].lump_name,lump_name) == 0){
+            return i;
+        }
+    }
+    return -1;
+}
+
