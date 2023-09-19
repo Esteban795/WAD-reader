@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "../headers/byte_reader.h"
-#include "../headers/vect2.h"
-
 
 byte read_1_byte(FILE* f, int offset){
     byte* b = read_bytes(f,1,offset);
@@ -21,11 +19,11 @@ byte* read_bytes(FILE* f,int offset,int num_bytes){
 
 char* read_string(FILE* f, int offset,int num_bytes){
     char* str = malloc(sizeof(char) * num_bytes + 1);
-    byte* bytes = read_bytes(f,num_bytes,offset);
-    strcpy(str,bytes);
     str[num_bytes] = '\0';
+    byte* bytes = read_bytes(f,offset,num_bytes);
+    for (int i = 0; i < num_bytes; i++){
+        str[i] = bytes[i];
+    }
     free(bytes);
     return str;
 }
-
-
