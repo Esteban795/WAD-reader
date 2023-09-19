@@ -6,8 +6,8 @@
 
 
 struct Vect2 {
-    double x;
-    double y;
+    u16 x;
+    u16 y;
 };
 
 typedef struct Vect2 vect2;

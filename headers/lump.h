@@ -8,8 +8,8 @@
 
 
 struct Lump {
-    int lump_offset;
-    int lump_size;
+    u16 lump_offset;
+    u16 lump_size;
     char* lump_name;
 };
 
@@ -19,6 +19,6 @@ typedef struct Lump lump;
 lump* read_directory(FILE* f,header* h);
 
 
-int get_lump_index(lump* directory,char* lump_name,int lump_count);
+u16 get_lump_index(lump* directory,char* lump_name,int lump_count);
 #endif
 
