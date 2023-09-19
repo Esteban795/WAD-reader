@@ -4,19 +4,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "byte_reader.h"
+#include "lump.h"
 
 struct Linedef {
-    int start_vertex_id;
-    int end_vertex_id;
-    int flag;
-    int line_type;
-    int sector_tag;
-    int front_sidedef_id;
-    int back_sidedef_id;  
+    u16 start_vertex_id;
+    u16 end_vertex_id;
+    u16 flag;
+    u16 line_type;
+    u16 sector_tag;
+    u16 front_sidedef_id;
+    u16 back_sidedef_id;  
 };
 
 typedef struct Linedef linedef;
 
+
 linedef read_linedef(FILE* f, int offset);
 
+linedef* get_linedefs_from_lump(FILE* f,lump* directory,int lump_index, int num_bytes,int header_length);
 #endif

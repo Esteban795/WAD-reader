@@ -11,3 +11,14 @@ linedef read_linedef(FILE* f, int offset){
     line.back_sidedef_id = read_bytes(f,offset + 12,2);
     return line;
 }
+
+linedef* get_linedefs_from_lump(FILE* f,lump* directory,int lump_index, int num_bytes,int header_length){
+    lump lump_info = directory[lump_index];
+    int count =  lump_info.lump_size / num_bytes;
+    linedef* linedefs = malloc(sizeof(linedef) * count);
+    for (int i = 0; i < count;i++){
+        int offset = lump_info.lump_offset + i * num_bytes + header_length;
+        linedefs[i] = read_linedef(f,offset);
+    }
+    return linedefs;
+}
