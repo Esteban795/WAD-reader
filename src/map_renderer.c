@@ -71,13 +71,12 @@ int* get_map_bounds(vect2* vertexes, int len){
 int remap_x(int current_x, int x_min, int x_max){
     return (max(x_min, min(current_x, x_max)) - x_min) * (OUT_MAX_W - OUT_MIN) / (x_max - x_min) + OUT_MIN;
 }
-// (max(self.x_min, min(n, self.x_max)) - self.x_min) * (out_max - out_min) / (self.x_max - self.x_min) + out_min
 
 
 int remap_y(int current_y, int y_min, int y_max){
     return HEIGHT - (max(y_min, min(current_y, y_max)) - y_min) * (OUT_MAX_H - OUT_MIN) / (y_max - y_min) - OUT_MIN;
 }
-//HEIGHT - (max(self.y_min, min(n, self.y_max)) - self.y_min) * (out_max - out_min) / (self.y_max - self.y_min) - out_min
+
 vect2* remap_vertexes(vect2* vertexes, int len, int* map_bounds){
     vect2* remapped_vertexes = malloc(sizeof(vect2) * len);
     for (int i = 0; i < len;i++){

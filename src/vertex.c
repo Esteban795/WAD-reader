@@ -1,8 +1,8 @@
 #include "../headers/vertex.h"
 
 vect2 read_vertex(FILE* f,int offset){
-    int x = (int) read_bytes(f,offset,2);
-    int y = (int) read_bytes(f,offset,2);
+    u16 x = read_u16(f,offset);
+    u16 y = read_u16(f,offset + 2);
     vect2 pos = {.x = x, .y = y};
     return pos;
 }

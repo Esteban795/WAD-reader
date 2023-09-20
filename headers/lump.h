@@ -8,8 +8,8 @@
 
 
 struct Lump {
-    u16 lump_offset;
-    u16 lump_size;
+    i32 lump_offset;
+    i32 lump_size;
     char* lump_name;
 };
 

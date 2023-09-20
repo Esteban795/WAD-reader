@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "byte_reader.h"
 
 struct Vect2 {
     u16 x;

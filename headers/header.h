@@ -5,8 +5,8 @@
 #include "byte_reader.h"
 struct Header {
     char* wad_type;
-    u16 lump_count;
-    u16 init_offset;
+    i32 lump_count;
+    i32 init_offset;
 };
 
 typedef struct Header header;
