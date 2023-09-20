@@ -17,6 +17,25 @@ byte* read_bytes(FILE* f,int offset,int num_bytes){
     return bytes;
 }
 
+// WAD files use little endianness
+u16 read_u16(FILE* f, int offset){
+    byte* bytes = read_bytes(f,offset,2);
+    u16 temp = 0;
+    temp = bytes[1] << 8;
+    temp |= bytes[0];
+    return temp;
+}
+
+i32 read_i32(FILE* f,int offset){
+    byte* bytes = read_bytes(f,offset,4);
+    i32 temp = 0;
+    temp = bytes[3] << 24;
+    temp |= bytes[2] << 16;
+    temp |= bytes[1] << 8;
+    temp |= bytes[0];
+    return temp;
+}
+
 char* read_string(FILE* f, int offset,int num_bytes){
     char* str = malloc(sizeof(char) * num_bytes + 1);
     str[num_bytes] = '\0';

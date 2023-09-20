@@ -5,6 +5,8 @@
 #include <stdint.h>
 typedef uint16_t u16;
 
+typedef int32_t i32;
+
 
 #define THINGS 1
 #define LINEDEFS 2
@@ -19,9 +21,14 @@ typedef uint16_t u16;
 
 typedef unsigned char byte;
 
+
 byte read_1_byte(FILE* f, int offset);
 
 byte* read_bytes(FILE* f,int offset,int num_bytes);
+
+u16 read_u16(FILE* f, int offset);
+
+i32 read_i32(FILE* f,int offset);
 
 char* read_string(FILE* f, int offset,int num_bytes);
 #endif
