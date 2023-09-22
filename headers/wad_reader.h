@@ -3,10 +3,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "header.h"
 
 struct WADReader {
     FILE* wad_file;
     header* header;
-    
-}
+};
+
 #endif

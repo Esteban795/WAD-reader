@@ -23,6 +23,7 @@ u16 read_u16(FILE* f, int offset){
     u16 temp = 0;
     temp = bytes[1] << 8;
     temp |= bytes[0];
+    free(bytes);
     return temp;
 }
 
@@ -33,6 +34,7 @@ i32 read_i32(FILE* f,int offset){
     temp |= bytes[2] << 16;
     temp |= bytes[1] << 8;
     temp |= bytes[0];
+    free(bytes);
     return temp;
 }
 

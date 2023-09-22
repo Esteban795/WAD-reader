@@ -2,7 +2,7 @@
 #define MAP_RENDERER_H
 
 #include <SDL2/SDL.h>
-#include "vect2.h"
+#include "vertex.h"
 #include "linedef.h"
 
 #define RES_W 320
@@ -17,11 +17,11 @@
 #define OUT_MAX_W (WIDTH - 30)
 #define OUT_MAX_H (HEIGHT - 30)
 
-int* get_map_bounds(vect2* vertexes, int len);
+int* get_map_bounds(vertex* vertexes, int len);
 
-vect2* remap_vertexes(vect2* vertexes, int len, int* map_bounds);
+vertex* remap_vertexes(vertex* vertexes, int len, int* map_bounds);
 
-void draw_linedefs(SDL_Renderer* renderer,linedef* linedefs,int len,vect2* vertexes);
+void draw_linedefs(SDL_Renderer* renderer,linedef* linedefs,int len,vertex* vertexes);
 
-void draw_vertexes(SDL_Renderer* renderer,vect2* vertexes,int len);
+void draw_vertexes(SDL_Renderer* renderer,vertex* vertexes,int len);
 #endif
