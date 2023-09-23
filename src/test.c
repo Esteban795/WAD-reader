@@ -19,9 +19,9 @@ int main(void){
         printf("Error starting SDL\n");
         return 1;
     }
-    vect2 vertexes[4] = {{0,0},{0,100},{100,0},{100,100}};
+    vertex vertexes[4] = {{0,0},{0,100},{100,0},{100,100}};
     int* map_bounds = get_map_bounds(vertexes,4);
-    vect2* temp = remap_vertexes(vertexes,4,map_bounds);
+    vertex* temp = remap_vertexes(vertexes,4,map_bounds);
     for (int i = 0; i < 4; i++){
         printf("x: %d, y: %d\n",temp[i].x,temp[i].y);
     }

@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "header.h": "c",
+        "vertex.h": "c",
+        "byte_reader.h": "c",
+        "map_renderer.h": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c"
+    }
+}

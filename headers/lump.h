@@ -16,7 +16,7 @@ struct Lump {
 typedef struct Lump lump;
 
 
-lump* read_directory(FILE* f,header* h);
+lump* read_directory(FILE* f,header h);
 
 
 u16 get_lump_index(lump* directory,char* lump_name,int lump_count);

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "../headers/wad_reader.h"
 #include "../headers/byte_reader.h"
 #include "../headers/header.h"
 
@@ -23,9 +24,16 @@
 //     return 0;
 // }
 
-int main(void){
-    FILE* f = fopen("data/DOOM1.WAD","rb");
-    header h = read_header(f);
-    printf("Header. Name : %s, num_lumps : %d, init_offset : %d\n",h.wad_type,h.lump_count,h.init_offset);
+wadData initWadDATA(const char* path){
+    FILE* file = fopen(path,"rb");
+    wadData wd;
+    wd.header = read_header(file);
+    wd.directory = read_directory(file,wd.header);
+    wd.map_index = get_lump_index(wd.directory,"E1M1",wd.header.lump_count);
+    wd.vertexes = get_vertexes_from_lump(file,wd.directory,wd.map_index + VERTEXES,4,0);
+    wd.linedefs = get_linedefs_from_lump(file,wd.directory,wd.map_index + LINEDEFS,14,0);
+}
+
+int main(int argc, char* argv[]){
     return 0;
 }

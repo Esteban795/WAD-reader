@@ -3,11 +3,29 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "header.h"
+#include <stdbool.h>
 
-struct WADReader {
-    FILE* wad_file;
-    header* header;
+
+#include "header.h"
+#include "map_renderer.h"
+
+
+#define DT 1/60 
+
+struct WADData {
+    header header;
+    lump* directory;
+    int map_index;
+    vertex* vertexes;
+    linedef* linedefs;
 };
 
+typedef struct WADData wadData;
+
+struct Engine {
+    bool running;
+    SDL_Renderer* renderer;
+};
+
+typedef struct Engine engine
 #endif
