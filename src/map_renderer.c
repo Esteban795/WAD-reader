@@ -101,6 +101,6 @@ void draw_linedefs(SDL_Renderer* renderer,linedef* linedefs,int len,vertex* vert
 void draw_vertexes(SDL_Renderer* renderer,vertex* vertexes,int len){
     SDL_SetRenderDrawColor(renderer,255,255,255,255);
     for (int i = 0; i < len; i++){
-        DrawCircle(renderer,vertexes[i].x,vertexes[i].y,20);
+        DrawCircle(renderer,vertexes[i].x,vertexes[i].y,5);
     }
 }

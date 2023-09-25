@@ -34,7 +34,7 @@ wadData initWadDATA(const char* path){
     wd.linedefs = get_linedefs_from_lump(file,wd.directory,wd.map_index + LINEDEFS,14,0,wd.len_linedefs); // 14 = number of bytes per linedef
     
     int* bounds = get_map_bounds(wd.vertexes,wd.len_vertexes);
-    //wd.vertexes = remap_vertexes(wd.vertexes,wd.len_vertexes,bounds); // frees the old version of vertexes
+    wd.vertexes = remap_vertexes(wd.vertexes,wd.len_vertexes,bounds); // frees the old version of vertexes
     free(bounds); //won't be used anymore
     return wd;
 }
@@ -56,44 +56,44 @@ void draw(engine engi){
 
 int main(int argc, char* argv[]){
     if (argc < 2) exit(-1);
-    // SDL_Window* window;
-    // SDL_Renderer* renderer;
-    // int status = start_SDL(&window,&renderer,WIDTH,HEIGHT,"Map rendering..");
-    // if (status == 1){
-    //     printf("Error at SDL startup");
-    //     exit(-1);
-    // }
+    SDL_Window* window;
     SDL_Renderer* renderer;
+    int status = start_SDL(&window,&renderer,WIDTH,HEIGHT,"Map rendering..");
+    if (status == 1){
+        printf("Error at SDL startup");
+        exit(-1);
+    }
     engine engi = initEngine(renderer,argv[1]);
     SDL_Event e;
     for (int i = 0; i < engi.wData.len_vertexes; i++){
         vertex v = engi.wData.vertexes[i];
         printf("Vertex %d : (x,y) = (%d,%d)\n\n",i,v.x,v.y);
     }
-    // while (engi.running) {
-    //     SDL_PollEvent(&e);
-    //     draw(engi);
-    //     switch (e.type) {
-    //     case SDL_QUIT:
-    //         engi.running = false;
-    //         break;
-    //     case SDL_KEYDOWN:
-    //         switch (e.key.keysym.sym) {
-    //         case SDLK_ESCAPE:
-    //             engi.running = false;
-    //             break;
-    //         case SDLK_q:
-    //             engi.running = false;
-    //         default:
-    //             break;
-    //         }
-    //     default:
-    //         break;
-    //     }
-    //     SDL_Delay(100);
-    // }
+    while (engi.running) {
+        SDL_PollEvent(&e);
+        draw(engi);
+        switch (e.type) {
+        case SDL_QUIT:
+            engi.running = false;
+            break;
+        case SDL_KEYDOWN:
+            switch (e.key.keysym.sym) {
+            case SDLK_ESCAPE:
+                engi.running = false;
+                break;
+            case SDLK_q:
+                engi.running = false;
+            default:
+                break;
+            }
+        default:
+            break;
+        }
+        SDL_Delay(100);
+    }
     free(engi.wData.vertexes);
     free(engi.wData.linedefs);
     free(engi.wData.header.wad_type);
+    free(engi.wData.directory);
     return 0;
 }
