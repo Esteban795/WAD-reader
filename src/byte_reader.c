@@ -18,9 +18,18 @@ byte* read_bytes(FILE* f,int offset,int num_bytes){
 }
 
 // WAD files use little endianness
+i16 read_i16(FILE* f, int offset){
+    byte* bytes = read_bytes(f,offset,2);
+    i16 temp = 0;
+    temp = bytes[1] << 8;
+    temp |= bytes[0];
+    free(bytes);
+    return temp;
+}
+
 u16 read_u16(FILE* f, int offset){
     byte* bytes = read_bytes(f,offset,2);
-    u16 temp = 0;
+    i16 temp = 0;
     temp = bytes[1] << 8;
     temp |= bytes[0];
     free(bytes);

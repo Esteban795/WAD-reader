@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "algorithm": "c",
+        "header.h": "c",
+        "map_renderer.h": "c",
+        "lump.h": "c"
+    }
+}

@@ -85,6 +85,7 @@ vertex* remap_vertexes(vertex* vertexes, int len, int* map_bounds){
         remapped_vertexes[i].x = remap_x(vertexes[i].x, map_bounds[0], map_bounds[1]);
         remapped_vertexes[i].y = remap_y(vertexes[i].y, map_bounds[2], map_bounds[3]);
     }
+    free(vertexes); 
     return remapped_vertexes;
 }
 

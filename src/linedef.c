@@ -12,11 +12,10 @@ linedef read_linedef(FILE* f, int offset){
     return line;
 }
 
-linedef* get_linedefs_from_lump(FILE* f,lump* directory,int lump_index, int num_bytes,int header_length){
+linedef* get_linedefs_from_lump(FILE* f,lump* directory,int lump_index, int num_bytes,int header_length,int len_linedefs){
     lump lump_info = directory[lump_index];
-    int count =  lump_info.lump_size / num_bytes;
-    linedef* linedefs = malloc(sizeof(linedef) * count);
-    for (int i = 0; i < count;i++){
+    linedef* linedefs = malloc(sizeof(linedef) * len_linedefs);
+    for (int i = 0; i < len_linedefs; i++){
         int offset = lump_info.lump_offset + i * num_bytes + header_length;
         linedefs[i] = read_linedef(f,offset);
     }

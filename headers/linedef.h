@@ -21,5 +21,5 @@ typedef struct Linedef linedef;
 
 linedef read_linedef(FILE* f, int offset);
 
-linedef* get_linedefs_from_lump(FILE* f,lump* directory,int lump_index, int num_bytes,int header_length);
+linedef* get_linedefs_from_lump(FILE* f,lump* directory,int lump_index, int num_bytes,int header_length,int len_linedefs);
 #endif

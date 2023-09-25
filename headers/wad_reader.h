@@ -18,14 +18,19 @@ struct WADData {
     int map_index;
     vertex* vertexes;
     linedef* linedefs;
+    int len_vertexes;
+    int len_linedefs;
 };
 
 typedef struct WADData wadData;
 
 struct Engine {
+    const char* wadPath;
     bool running;
     SDL_Renderer* renderer;
+    wadData wData;
 };
 
-typedef struct Engine engine
+typedef struct Engine engine;
+
 #endif

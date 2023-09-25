@@ -1,10 +1,10 @@
 #ifndef BYTE_READER_H
 #define BYTE_READER_H
 
-
+#include <stdio.h>
 #include <stdint.h>
+typedef int16_t i16;
 typedef uint16_t u16;
-
 typedef int32_t i32;
 
 
@@ -25,6 +25,8 @@ typedef unsigned char byte;
 byte read_1_byte(FILE* f, int offset);
 
 byte* read_bytes(FILE* f,int offset,int num_bytes);
+
+i16 read_i16(FILE* f, int offset);
 
 u16 read_u16(FILE* f, int offset);
 
