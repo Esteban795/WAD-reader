@@ -2,12 +2,12 @@
 #define MAP_RENDERER_H
 
 #include <SDL2/SDL.h>
+
 #include "vertex.h"
 #include "linedef.h"
 
 #define RES_W 320
 #define RES_H 200
-
 #define SCALE 5.0
 
 #define WIDTH RES_W * SCALE

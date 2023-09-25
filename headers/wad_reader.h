@@ -5,13 +5,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-
 #include "header.h"
 #include "map_renderer.h"
 
 
 #define DT 1/60 
-
 struct WADData {
     header header;
     lump* directory;
@@ -22,13 +20,13 @@ struct WADData {
     int len_linedefs;
 };
 
-typedef struct WADData wadData;
+typedef struct WADData wad_data;
 
 struct Engine {
     const char* wadPath;
     bool running;
     SDL_Renderer* renderer;
-    wadData wData;
+    wad_data wData;
 };
 
 typedef struct Engine engine;

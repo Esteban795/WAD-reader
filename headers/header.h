@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include "byte_reader.h"
+
 struct Header {
     char* wad_type;
     i32 lump_count;

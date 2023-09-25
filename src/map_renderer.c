@@ -9,7 +9,7 @@ int min(int a, int b){
     return a < b ? a : b;
 }
 
-//code stolen from the internet, I just needed to draw a circle.
+//code stolen from the internet, I just needed to draw a circle for the vertexes.
 void DrawCircle(SDL_Renderer* renderer, int32_t centreX, int32_t centreY, int32_t radius){
    const int32_t diameter = (radius * 2);
    int32_t x = (radius - 1);
@@ -85,7 +85,7 @@ vertex* remap_vertexes(vertex* vertexes, int len, int* map_bounds){
         remapped_vertexes[i].x = remap_x(vertexes[i].x, map_bounds[0], map_bounds[1]);
         remapped_vertexes[i].y = remap_y(vertexes[i].y, map_bounds[2], map_bounds[3]);
     }
-    free(vertexes); 
+    free(vertexes);// forget the old vertexes
     return remapped_vertexes;
 }
 

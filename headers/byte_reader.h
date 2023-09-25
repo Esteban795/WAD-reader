@@ -2,11 +2,12 @@
 #define BYTE_READER_H
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <stdint.h>
 typedef int16_t i16;
 typedef uint16_t u16;
 typedef int32_t i32;
-
 
 #define THINGS 1
 #define LINEDEFS 2

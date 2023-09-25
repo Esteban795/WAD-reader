@@ -10,7 +10,7 @@ build:
 	gcc $(SRCDIR)/wad_reader.c -o ./bin/wad_reader  $(DEPENDENCIES) $(FLAGS)
 
 run:
-	./bin/wad_reader
+	./bin/wad_reader data/DOOM1.WAD
 
 clean:
 	rm ./bin/wad_reader

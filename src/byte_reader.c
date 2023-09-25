@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "../headers/byte_reader.h"
 
 byte read_1_byte(FILE* f, int offset){
