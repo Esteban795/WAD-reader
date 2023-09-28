@@ -3,7 +3,7 @@ HEADDIR = include
 LIBDIR = ./src
 
 FLAGS = -lSDL2
-DEBUGFLAGS = -W -Wall -Wextra -Wvla -fsanitize=address
+DEBUGFLAGS = -W -Wall -Wextra -Wvla -fsanitize=address -g
 DEPENDENCIES = $(SRCDIR)/byte_reader.c $(SRCDIR)/header.c $(SRCDIR)/linedef.c $(SRCDIR)/lump.c $(SRCDIR)/map_renderer.c $(SRCDIR)/vertex.c
 
 build:

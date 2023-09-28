@@ -1,5 +1,5 @@
 # WAD-reader
-## A C program that lets you read a WAD file and displays the structure of the map accordingly.
+## A C program that lets you read a DOOM WAD file and displays the structure of the map accordingly.
 
 ### __What does it do ?__
 - It takes a .WAD filepath as an input, reads it and attempts to display the result of what it just read, as a 2D map of points and linedefs (that represent the vertexes and linedefs that are part of the Doom structure of sectors and subsectors).
@@ -25,7 +25,7 @@ git clone https://github.com/Esteban795/WAD-reader.git
 ```ps 
 make all
 ```
-to have the program display an example for you. If everything goes fine, you should get this on your screen : 
+to have the program display an example for you. If everything goes finek, you should get this on your screen : 
 
 ![doom1WADread](data/doom1.png)
 
