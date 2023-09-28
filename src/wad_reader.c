@@ -21,7 +21,7 @@ wad_data init_wad_data(const char* path){
     wad_data wd;
     wd.header = read_header(file);
     wd.directory = read_directory(file,wd.header);
-    wd.map_index = get_lump_index(wd.directory,"MAP02",wd.header.lump_count);
+    wd.map_index = get_lump_index(wd.directory,"E1M1",wd.header.lump_count);
     wd.len_vertexes = wd.directory[wd.map_index + VERTEXES].lump_size / 4; // 4 = number of bytes per vertex
     wd.len_linedefs = wd.directory[wd.map_index + LINEDEFS].lump_size / 14; // 14 = number of bytes per linedef
     wd.vertexes = get_vertexes_from_lump(file,wd.directory,wd.map_index + VERTEXES,4,0,wd.len_vertexes); 

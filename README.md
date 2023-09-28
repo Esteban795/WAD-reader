@@ -48,3 +48,8 @@ to display a file example, or use
 ./bin/wad_reader <yourfilepathhere>
 ```
 if you prefer to use a custom file.
+
+
+## /!\ Warning : 
+
+- Because DOOM changed its way of formatting between the original DOOM and the second, and basically the others, to display the other files, make sure you changed the line E1M1 to MAP01, MAP02 or anything.I'll try working on that to autodetect with parsing arguments.
